@@ -1,6 +1,7 @@
 import './App.css';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 
+import NavHeader from './components/NavHeader/NavHeader';
 import Main from './views/Main/Main';
 import Books from './views/Books/Books';
 import Characters from './views/Characters/Characters';
@@ -11,6 +12,7 @@ import Films from './views/Films/Films';
 function App() {
   return (
     <BrowserRouter>
+      <NavHeader />
       <div className='app'>
         <Switch>
           <Route exact path="/">
