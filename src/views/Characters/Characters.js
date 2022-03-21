@@ -1,10 +1,12 @@
 
 import React, { useEffect, useState } from 'react';
 import { fetchCharacters } from '../../services/characters';
+import Filter from '../../components/Controls/Filter';
 
 export default function Characters() {
   const [characters, setCharacters] = useState([]);
   const [error, setError] = useState('');
+  const [races, setRaces] = useState('All');
 
   const options = ['All', 'Dwarf', 'Elf', 'Hobbit', 'Human', 'Maiar', 'Orc'];
 
@@ -20,13 +22,21 @@ export default function Characters() {
     fetchData();
   }, []);
 
+  const filterCharacters = () => {
+    const filtered = characters.filter((character) => character.race === races || races === 'All');
+    return filtered;
+  };
+
   return (
-    <div className='character'>
-      <h1>Characters</h1>
-      {error && <p>{error}</p>}
-      {characters.map((character) => (
-        <p key={character.id}>{character.name}</p>
-      ))}
-    </div>
+    <>
+      <Filter options={options} callback={setRaces} />
+      <div className='character'>
+        <h1>Characters</h1>
+        {error && <p>{error}</p>}
+        {filterCharacters().map((character) => (
+          <p key={character.id}>{character.name}</p>
+        ))}
+      </div>
+    </>
   );
 }
