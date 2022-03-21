@@ -19,7 +19,7 @@ export default function Films() {
 
   return (
     <div className='film'>
-      <h3>Films</h3>
+      <h1>Films</h1>
       {error && <p>{error}</p>}
       {films.map((film) => (
         <p key={film.id}>{film.title}</p>
