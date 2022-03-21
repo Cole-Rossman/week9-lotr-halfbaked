@@ -10,7 +10,6 @@ export default function Characters() {
     const fetchData = async () => {
       try {
         const characterData = await fetchCharacters('All');
-        console.log(characterData);
         setCharacters(characterData);
       } catch (e) {
         setError(e.message);
