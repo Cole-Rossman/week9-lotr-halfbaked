@@ -6,6 +6,8 @@ export default function Characters() {
   const [characters, setCharacters] = useState([]);
   const [error, setError] = useState('');
 
+  const options = ['All', 'Dwarf', 'Elf', 'Hobbit', 'Human', 'Maiar', 'Orc'];
+
   useEffect(() => {
     const fetchData = async () => {
       try {
