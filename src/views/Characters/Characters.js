@@ -34,7 +34,7 @@ export default function Characters() {
         <h1>Characters</h1>
         {error && <p>{error}</p>}
         {filterCharacters().map((character) => (
-          <p key={character.id}>{character.name}</p>
+          <p key={character.id}>{character.name}, {character.race}</p>
         ))}
       </div>
     </>
